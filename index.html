@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F3ECE1" />
+  <title>Sudarshan Chakra — Secure Digital Document Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- System Shell -->
+  <div id="app-shell" class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="emblem" aria-label="National emblem placeholder">स</div>
+        <div>
+          <div class="brand-title">SUDARSHAN CHAKRA</div>
+          <div class="brand-subtitle">Secure Digital Document Management System</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="system-pill">SYSTEM OPERATIONAL</div>
+        <div id="user-badge" class="user-badge">Not Authenticated</div>
+        <button id="logout-btn" class="icon-btn hidden" title="Logout">↪</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" id="sidebar-container">
+        <div class="sidebar-head">
+          <span class="small-label">COMMAND CONSOLE</span>
+          <div id="active-role-label" class="role-label">GUEST ACCESS</div>
+        </div>
+        <nav id="sidebar-nav" class="nav-stack"></nav>
+        <div class="sidebar-footer">
+          <div class="security-card">
+            <div class="security-icon">⌬</div>
+            <div>
+              <strong>Zero-Trust</strong>
+              <span>Every action audited</span>
+            </div>
+          </div>
+          <div class="version">SUDARSHAN v1.0 • LEGAL COMPLIANT</div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+
+        <!-- LANDING DASHBOARD -->
+        <section id="landing-view" class="view">
+          <div class="landing-container">
+            <!-- Header Mimic -->
+            <div class="hk-header">
+               <div class="hk-brand"><strong>SUDARSHAN</strong><span class="hk-square"></span></div>
+               
+               <div class="hk-actions">
+                 <button class="ghost-btn hk-borderless" onclick="goToAuth('login')">Log In</button>
+                 
+                 <button class="primary-btn hk-dark-btn" onclick="goToAuth('register')">Create a account</button>
+               </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="hk-hero">
+              <h1><span class="hk-green">Secure</span> the next<br>generation legal system</h1>
+              <p>We help law enforcement agencies, courts, and investigative organizations securely manage sensitive documents, and millions of records to remain tamper-proof.</p>
+              <div class="hk-cta">
+                <button class="primary-btn hk-dark-btn" onclick="goToAuth('register')">Sign Up</button>
+                <button class="ghost-btn hk-outline" onclick="goToAuth('login')">Sign In</button>
+              </div>
+            </div>
+
+            <!-- Logos -->
+            <div class="hk-logos-container">
+               <div class="hk-logos">
+                  <span>STATE POLICE HQ</span>
+                  <span>CBI</span>
+                  <span>SUPREME COURT</span>
+                  
+                  <span>FORENSICS</span>
+               </div>
+            </div>
+
+            <!-- Scrollable Information Boxes -->
+            <div class="info-boxes">
+               <div class="info-card">
+                 <h3>Background</h3>
+                 <p>Law enforcement agencies, courts, legal departments, and investigative organizations handle vast amounts of sensitive documents throughout the lifecycle of a case. These documents may include:</p>
+                 <ul>
+                    <li>FIRs and police reports</li>
+                    <li>Investigation records</li>
+                    <li>Witness statements</li>
+                    <li>Charge sheets</li>
+                    <li>Court filings</li>
+                    <li>Evidence records</li>
+                    <li>Forensic reports</li>
+                    <li>Legal notices and judgments</li>
+                 </ul>
+                 <p>Many organizations still rely on paper-based systems or fragmented digital storage solutions. This often leads to challenges such as:</p>
+                 <ul>
+                    <li>Difficulty in locating documents quickly</li>
+                    <li>Unauthorized access to confidential information</li>
+                    <li>Document tampering risks</li>
+                    <li>Lack of version control</li>
+                    <li>Inefficient collaboration between departments</li>
+                    <li>Delays in legal and investigative processes</li>
+                    <li>Poor auditability and compliance tracking</li>
+                 </ul>
+                 <p>As the volume of legal and investigation-related data continues to grow, there is an increasing need for a secure, centralized, and intelligent document management system that ensures data integrity, accessibility, confidentiality, and efficient case management. Modern technologies such as Cloud Computing, Artificial Intelligence (AI), Blockchain, Digital Signatures, and Secure Access Control can significantly improve the management and security of legal and investigative documents.</p>
+               </div>
+
+               <div class="info-card">
+                 <h3>Description</h3>
+                 <p>The objective is to develop a Secure Digital Document Management System (DMS) that enables law enforcement agencies, legal institutions, and investigative departments to securely store, organize, manage, retrieve, and share sensitive legal and investigation documents.</p>
+                 <p>The system should:</p>
+                 <ul>
+                    <li>Digitize and centralize document storage.</li>
+                    <li>Ensure secure access and confidentiality.</li>
+                    <li>Prevent unauthorized modifications.</li>
+                    <li>Maintain a complete audit trail of document activities.</li>
+                    <li>Enable efficient document search and retrieval.</li>
+                    <li>Support collaboration among authorized stakeholders.</li>
+                    <li>Ensure compliance with legal and regulatory requirements.</li>
+                 </ul>
+                 <p>The challenge is to create a secure, scalable, and intelligent platform that streamlines document handling while preserving legal validity and evidentiary integrity.</p>
+               </div>
+
+               <div class="info-card">
+                 <h3>System Info</h3>
+                 <p>This is a system to monitor and manage police assets throughout their lifecycle.</p>
+               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AUTH VIEW -->
+        <section id="auth-view" class="view hidden">
+          <div class="auth-grid">
+            <div class="auth-hero panel">
+              <span class="eyebrow">NATIONAL DIGITAL EVIDENCE GRID</span>
+              <h2>One legal ledger.<br><span class="accent">Zero tampering.</span></h2>
+              <p>Securely ingest, verify and govern digital evidence with SHA-256 integrity checks, strict role-based clearances, and an immutable government audit trail.</p>
+              <div class="hero-stats">
+                <div><strong>256-bit</strong><span>Hash Integrity</span></div>
+                <div><strong>3</strong><span>Clearance Levels</span></div>
+                <div><strong>24×7</strong><span>Audit Trail</span></div>
+              </div>
+            </div>
+
+            <div class="auth-card panel">
+              <div class="auth-tabs">
+                <button class="auth-tab active" data-mode="login">Secure Login</button>
+                <button class="auth-tab" data-mode="register">Officer Registration</button>
+              </div>
+              <div id="login-form" class="form-block">
+                <div class="section-heading">
+                  <span class="eyebrow">IDENTITY VERIFICATION</span>
+                  <h3>Enter Command Credentials</h3>
+                </div>
+                <label>Email<input id="login-id" type="email" autocomplete="username" placeholder="officer@gov.in" /></label>
+                <label>Password<input id="login-pin" type="password" autocomplete="current-password" /></label>
+                <button id="login-btn" class="primary-btn">Authenticate & Enter <span>→</span></button>
+                <div class="demo-note">Use an officer account configured in the database.</div>
+              </div>
+
+              <div id="register-form" class="form-block hidden">
+                <div class="section-heading">
+                  <span class="eyebrow">NEW CLEARANCE</span>
+                  <h3>Register Secure Officer</h3>
+                </div>
+                <label>Full name<input id="reg-name" type="text" placeholder="Officer full name" /></label>
+                <label>Officer ID<input id="reg-id" type="text" placeholder="e.g. POL-UP-107" /></label>
+                <label>Role Assignment
+                  <select id="reg-role">
+                    <option value="police">Police Officer</option>
+                    <option value="judge">Judicial Officer</option>
+                    <option value="admin">System Admin</option>
+                  </select>
+                </label>
+                <label>Email<input id="reg-email" type="email" placeholder="officer@gov.in" /></label>
+                <label>Password<input id="reg-password" type="password" autocomplete="new-password" /></label>
+                <button id="register-btn" class="primary-btn">Create Officer Profile <span>→</span></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- POLICE DASHBOARD -->
+        <section id="police-dashboard" class="view hidden">
+          <div class="central-hero panel" style="text-align: center; padding: 60px 20px; margin-bottom: 30px;">
+            <span class="eyebrow" style="color: var(--amber);">INDIAN LAW ENFORCEMENT GRID</span>
+            <h1 style="font-size: 42px; font-weight: 800; color: var(--text); margin: 15px 0; letter-spacing: -0.02em;">
+              Secure the next generation of <br>
+              <span style="color: var(--green);">digital evidence</span>
+            </h1>
+            <p style="font-size: 15px; color: var(--muted); max-width: 650px; margin: 0 auto 30px; line-height: 1.6;">
+              Sudarshan Chakra empowers law enforcement agencies to ingest, seal, and verify high-stakes criminal records with immutable cryptographic protection.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 14px;">
+              <button class="primary-btn" onclick="document.getElementById('pdf-file-input').click()" style="width: auto; padding: 14px 28px;">
+                Ingest PDF Evidence
+              </button>
+              <button class="ghost-btn" onclick="navigateTo('judge-dashboard')" style="width: auto; padding: 14px 28px;">
+                Open Judicial Bench
+              </button>
+            </div>
+          </div>
+
+          <div class="agency-logos" style="display: flex; justify-content: center; gap: 30px; opacity: 0.7; margin-bottom: 40px; flex-wrap: wrap; font-size: 13px; font-weight: 700; color: var(--muted);">
+            <span>STATE POLICE HQ</span>
+            <span>CENTRAL BUREAU OF INVESTIGATION</span>
+            <span>SUPREME COURT OF INDIA</span>
+            <span>MINISTRY OF HOME AFFAIRS</span>
+          </div>
+
+          <div class="content-grid two">
+            <div class="panel upload-panel">
+              <div class="panel-heading">
+                <div><span class="eyebrow">INGESTION PIPELINE</span><h3>Cryptographic PDF Evidence</h3></div>
+                <span class="role-chip police">POLICE</span>
+              </div>
+              <form id="upload-form" style="padding: 20px;">
+                <div id="drop-zone" class="drop-zone">
+                  <input id="pdf-file-input" type="file" accept="application/pdf,.pdf,image/png,image/jpeg,.png,.jpg,.jpeg" hidden />
+                  <div class="upload-orbit">↑</div>
+                  <strong>Drag & Drop Secure Evidence</strong>
+                  <span>or click to browse files</span>
+                  <em>PDF, PNG, or JPG • SHA-256 generated securely</em>
+                </div>
+
+                <div class="form-row" style="margin-top: 15px;">
+                  <label>Case ID<input id="case-id-input" type="text" placeholder="FIR-2026-UP-001" required /></label>
+                  <label>Crime Domain
+                    <select id="crime-domain">
+                      <option>Cyber Financial Fraud</option>
+                      <option>Document Tampering</option>
+                      <option>Narcotics</option>
+                      <option>Organized Crime</option>
+                      <option>Other</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div id="selected-file" class="selected-file hidden"></div>
+                <button class="primary-btn" type="submit" style="margin-top: 15px;">Seal Evidence <span>⌁</span></button>
+                <div id="upload-status" class="inline-status"></div>
+              </form>
+            </div>
+
+            <div class="panel scanner-panel">
+              <div class="panel-heading"><div><span class="eyebrow">LIVE CRYPTO ENGINE</span><h3>Evidence Seal Monitor</h3></div></div>
+              <div class="hash-console" style="border-top: none; padding: 20px;">
+                <div><span>HASH ENGINE</span><strong>STANDBY</strong></div>
+                <div><span>SHA-256</span><code id="hash-preview">e3b0c44298fc1c149afbf4c8996fb924...</code></div>
+                <div><span>ENCRYPTION</span><strong>AES-256 COMPLIANT</strong></div>
+                <div><span>STATUS</span><strong id="seal-status">SEALED CHANNEL READY</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">ACTIVE INVESTIGATION LEDGER</span><h3>Case Registry</h3></div>
+              <div class="table-tools"><input id="police-search" class="search-input" placeholder="Search cases…" /></div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Case ID</th><th>Crime Domain</th><th>Timestamp</th><th>Security Hash</th><th>Status</th></tr></thead>
+                <tbody id="police-ledger-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-heading"><div><span class="eyebrow">DOCUMENT MANAGEMENT</span><h3>Upload Document Version</h3></div></div>
+            <form id="document-form" style="padding: 20px;">
+              <div class="form-row">
+                <label>Case ID<input id="document-case-id" type="text" placeholder="FIR-2026-SC-001" required /></label>
+                <label>Title<input id="document-title" type="text" placeholder="Investigation report" required /></label>
+              </div>
+              <label>File<input id="document-file" type="file" accept="application/pdf,image/png,image/jpeg,.pdf,.png,.jpg,.jpeg,.txt,.doc,.docx" required /></label>
+              <button class="primary-btn" type="submit">Store Document <span>↑</span></button>
+              <div id="document-status" class="inline-status"></div>
+            </form>
+            <div id="document-list" class="officer-list"></div>
+            <form id="version-form" style="padding: 20px; border-top: 1px solid var(--line);">
+              <div class="form-row">
+                <label>Document ID<input id="version-document-id" type="text" placeholder="DOC-..." required /></label>
+                <label>New Version File<input id="version-file" type="file" accept="application/pdf,image/png,image/jpeg,.pdf,.png,.jpg,.jpeg,.txt,.doc,.docx" required /></label>
+              </div>
+              <button class="ghost-btn" type="submit">Upload New Version</button>
+            </form>
+          </div>
+
+        </section>
+
+        <!-- JUDGE DASHBOARD -->
+        <section id="judge-dashboard" class="view hidden">
+          <div class="page-heading">
+            <div>
+              <span class="eyebrow">JUDICIAL BENCH MODULE</span>
+              <h2>Evidence Verification Bench</h2>
+              <p>Search sealed cases, inspect evidence, and verify SHA-256 integrity under IT Act guidelines.</p>
+            </div>
+            <div class="live-badge purple">JUDICIAL CLEARANCE</div>
+          </div>
+
+          <div class="content-grid two judge-top">
+            <div class="panel search-panel">
+              <div class="panel-heading"><div><span class="eyebrow">CASE SEARCH</span><h3>Find Evidence Record</h3></div><span class="role-chip judge">JUDGE</span></div>
+              <label style="padding: 0 20px;">Case ID or keyword<input id="judge-search" type="text" placeholder="FIR-2026-DEL-104" /></label>
+              <div id="judge-results" class="case-results"></div>
+            </div>
+
+            <div class="panel integrity-panel">
+              <div class="panel-heading"><div><span class="eyebrow">CRYPTOGRAPHIC INTEGRITY CHECK</span><h3>Verify Document Seal</h3></div></div>
+              <div class="integrity-box">
+                <div class="integrity-row"><span>Original Ingestion Hash</span><code id="original-hash">—</code></div>
+                <div class="integrity-row"><span>Live Recalculated Hash</span><code id="live-hash">—</code></div>
+                <div id="integrity-result" class="integrity-result neutral"><span>⌬</span><div><strong>AWAITING CASE</strong><small>Select a case to start verification.</small></div></div>
+                <div class="integrity-actions">
+                  <button id="verify-btn" class="primary-btn purple-btn" disabled>Verify Cryptographic Integrity <span>✓</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel viewer-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">SECURE DOCUMENT VIEWER SANDBOX</span><h3 id="viewer-title">No Evidence Selected</h3></div>
+              <span class="role-chip judge">65B COMPLIANT</span>
+            </div>
+            <div class="document-sandbox">
+              <div class="watermark" id="watermark">CONFIDENTIAL • JUDICIAL EVIDENCE</div>
+              <div class="document-toolbar">
+                <span id="viewer-file">No file loaded</span>
+                <span id="viewer-time"></span>
+              </div>
+              <article class="document-body" id="document-body">
+                <h4>Evidence Viewer</h4>
+                <p>Select a case from search results. The preview container maintains complete data isolation.</p>
+              </article>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ADMIN DASHBOARD -->
+        <section id="admin-dashboard" class="view hidden">
+          <div class="page-heading">
+            <div>
+              <span class="eyebrow">ADMIN GOVERNANCE MODULE</span>
+              <h2>System Governance Console</h2>
+              <p>Manage officer clearances and monitor the immutable audit trail.</p>
+            </div>
+            <div class="live-badge green">GOVERNANCE ONLINE</div>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric-card"><span>REGISTERED OFFICERS</span><strong id="admin-users-count">18</strong><small>All clearance levels</small></div>
+            <div class="metric-card"><span>ACTIVE CLEARANCES</span><strong id="active-users-count">0</strong><small>Currently active officers</small></div>
+            <div class="metric-card"><span>AUDIT EVENTS</span><strong id="audit-count">0</strong><small>Database audit ledger</small></div>
+            <div class="metric-card"><span>INTEGRITY ALERTS</span><strong id="alert-count">0</strong><small>Failed integrity checks</small></div>
+          </div>
+
+          <div class="content-grid two">
+            <div class="panel">
+              <div class="panel-heading"><div><span class="eyebrow">CLEARANCE MATRIX</span><h3>Officer Permissions</h3></div></div>
+              <div class="roles-grid">
+                <div class="role-summary blue-border"><span class="role-chip police">POLICE</span><h4>Ingest Evidence</h4><p>Upload PDFs, view assigned cases.</p><span class="perm">CANNOT DELETE</span></div>
+                <div class="role-summary purple-border"><span class="role-chip judge">JUDGE</span><h4>Verify Evidence</h4><p>Query cases, decrypt & verify.</p><span class="perm">CANNOT UPLOAD</span></div>
+                <div class="role-summary green-border"><span class="role-chip admin">ADMIN</span><h4>Govern Access</h4><p>Manage clearances, view audit logs.</p><span class="perm">CANNOT VIEW DOCUMENTS</span></div>
+              </div>
+              <div id="officer-list" class="officer-list"></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-heading"><div><span class="eyebrow">LIVE AUDIT TRAIL</span><h3>Immutable System Events</h3></div><button id="clear-demo-audit" class="ghost-btn small">Refresh Audit</button></div>
+              <div id="audit-list" class="audit-list"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-heading"><div><span class="eyebrow">CASE MANAGEMENT</span><h3>Create Case Record</h3></div></div>
+            <form id="case-form" style="padding: 20px;">
+              <div class="form-row">
+                <label>Case ID<input id="new-case-id" type="text" placeholder="FIR-2026-SC-002" required /></label>
+                <label>Crime Domain<input id="new-case-domain" type="text" placeholder="Cyber Financial Fraud" required /></label>
+              </div>
+              <label>Filing Date<input id="new-case-date" type="date" required /></label>
+              <button class="primary-btn" type="submit">Create Case Record <span>+</span></button>
+              <div id="case-status" class="inline-status"></div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
